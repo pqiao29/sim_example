@@ -16,7 +16,7 @@ res <- Chloris(sims$RDR, burnin_tol = 100, Gibbs_tol = 100, cluster_shrink_tol =
 res_RDR_aligned <- res
 
 ### Align resulting cluster labels with true cluster labels, to enable comparison
-import::from("~/Documents/Projects/old_simulations/res_alignment.R", cluster_align2, state_align2, align_fin3)
+import::from("res_alignment.R", cluster_align2, state_align2, align_fin3)
 fin_RDR <- align_fin3(est_I_label = res_RDR_aligned$cluster_est, est_states = res_RDR_aligned$state_est, 
                       true_I_label = c(sims$cluster_true, rep(K + 1, RDR_outlier_cnt)), verbose = FALSE)
 

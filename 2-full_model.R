@@ -22,7 +22,7 @@ plot_inout(sims$RDR, "RDR", cluster_labels = list(res$cluster_est, sims$cluster_
 
 
 ### Align resulting labels with true labels to enable comparison
-import::from("~/Documents/Projects/old_simulations/res_alignment.R", cluster_align2, state_align2, align_fin3)
+import::from("res_alignment.R", cluster_align2, state_align2, align_fin3)
 fin_RDR <- align_fin3(est_I_label = res$cluster_est, est_states = res$state_est,
                       true_I_label = sims$cluster_true, verbose = FALSE)
 
