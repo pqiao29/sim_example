@@ -1,9 +1,10 @@
+set.seed(1122)
 N = 300
 U = 200
 
 hc_acc <- hc_ARI <- hc_NMI <- NULL
 K = 5
-for(RDR_var in c(0.1, 1, 2)){
+for(RDR_var in seq(0.1, 2, 0.2)){
     sims <- get_sim_data(K = K, N = N, U = U, expr = F, RDR_var = RDR_var, RDR_outlier_cnt = 0, CNV_overlap= FALSE)
     
     hc <- hclust(dist(t(sims$RDR)), method = 'ward.D2')
