@@ -26,7 +26,7 @@ for(RDR_var in RDR_var_pool){
     methods_H <- c(rep(paste0("RDR", K), N), rep(paste0("both", K), N))
     
     df_I <- rbind(df_I, data.frame("RDR_var" = RDR_var, "accuracy" = I_accuracy, "Method" = methods_I))
-    methods_H <- c(rep(paste0("RDR", K), N), rep(paste0("both", K), N))
+    df_H <- rbind(df_H, data.frame("RDR_var" = RDR_var, "accuracy" = H_accuracy, "Method" = methods_H))
   }
   
 }
@@ -61,7 +61,7 @@ gg_I <- ggplot(df_I, aes(x = RDR_var, y = accuracy, fill = Method, color = Metho
         panel.background = element_blank())  +
   guides(fill = guide_legend(byrow = TRUE))
 
-ggsave(gg_I, width=24, height=12,  file = paste0(home_dir, "/result/Clusters.png"))
+ggsave(gg_I, width=24, height=12,  file = "result/Clusters.png")
 
 ##### Plot states
 df <- df_H
@@ -92,4 +92,4 @@ gg_H <- ggplot(df, aes(x = RDR_var, y = accuracy, fill = Method))  +
         axis.title.y = element_blank(),
         panel.background = element_blank()) +
   guides(fill = guide_legend(byrow = TRUE))
-ggsave(gg_H, width=24, height=12,  file = paste0(home_dir, "/result/States.png"))
+ggsave(gg_H, width=24, height=12,  file = "result/States.png")
